@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
 export default function LoginForm() {
   
   const [email, setEmail] = useState("");
