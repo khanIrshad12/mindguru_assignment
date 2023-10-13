@@ -18,7 +18,7 @@ export default function LoginForm() {
     
 
     try {
-      const response= await fetch("http://localhost:3000/api/useriddb",{
+      const response= await fetch("https://mindguru-assignment-ldyghl1xw-khanirshad12.vercel.app/api/useriddb",{
       method:"POST",
       headers:{
         "Content-type":"application/json",

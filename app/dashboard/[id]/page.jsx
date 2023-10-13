@@ -30,7 +30,7 @@ export default function Dashboard() {
         console.error('Error getting data from IndexedDB:', error);
       });
 
-    fetch(`http://localhost:3000/api/useriddb/?id=${id}`, {
+    fetch(`https://mindguru-assignment-ldyghl1xw-khanirshad12.vercel.app/api/useriddb/?id=${id}`, {
       cache: 'no-store',
     })
       .then(res => res.json())

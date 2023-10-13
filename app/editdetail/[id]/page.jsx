@@ -6,7 +6,7 @@ export const getData = async (id) => {
   const session = await getServerSession(authOptions);
   if (!session) redirect("/register");
   try {
-    const res = await fetch(`http://localhost:3000/api/details/${id}`);
+    const res = await fetch(`https://mindguru-assignment-ldyghl1xw-khanirshad12.vercel.app/api/details/${id}`);
 
     if (!res.ok) {
       throw new Error("Failed to fetch");

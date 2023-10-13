@@ -10,7 +10,7 @@ const EditDetails = ({ id, Name, Phone, Email }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:3000/api/details/${id}`, {
+      const res = await fetch(`https://mindguru-assignment-ldyghl1xw-khanirshad12.vercel.app/api/details/${id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",
