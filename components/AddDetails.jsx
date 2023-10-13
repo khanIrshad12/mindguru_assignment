@@ -23,7 +23,7 @@ export default function AddDetails({id}) {
     }
 
     try {
-      const res = await fetch("https://mindguru-assignment-ldyghl1xw-khanirshad12.vercel.app/api/details", {
+      const res = await fetch("/api/details", {
         method: "POST",
         headers: {
           "Content-type": "application/json",

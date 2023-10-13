@@ -6,7 +6,7 @@ const RemoveBtn = ({ id,setData }) => {
     try {
       const confirmed = confirm("Are You Sure");
       if (confirmed) {
-        const res = await fetch(`https://mindguru-assignment-ldyghl1xw-khanirshad12.vercel.app/api/details/?id=${id}`, {
+        const res = await fetch(`/api/details/?id=${id}`, {
           method: "DELETE",
           cache:'no-store'
         });
