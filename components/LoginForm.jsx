@@ -18,11 +18,8 @@ export default function LoginForm() {
     
 
     try {
-      const response= await fetch("https://mindguru-assignment-ldyghl1xw-khanirshad12.vercel.app/api/useriddb",{
+      const response= await fetch("/api/useriddb",{
       method:"POST",
-      headers:{
-        "Content-type":"application/json",
-      },
       body: JSON.stringify({ email }),
       
     })
