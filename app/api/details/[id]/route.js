@@ -11,6 +11,7 @@ export const PUT = async (req, { params }) => {
     email: email,
     phone: phone,
   });
+  console.log("updated")
   return NextResponse.json({ message: "updated" }, { status: 200 });
 };
 export const GET = async (req, { params }) => {

@@ -17,36 +17,43 @@ export default function Dashboard() {
     set(dataStorageKey, data).catch(error => {
       console.error('Error saving data to IndexedDB:', error);
     });
+
   }, [data]);
 
   useEffect(() => {
-    get(dataStorageKey)
-      .then(savedData => {
+    const fetchData = async () => {
+      try {
+        const savedData = await get(dataStorageKey);
+        console.log("savedData lstore",savedData);
         if (savedData) {
           setData(savedData);
         }
-      })
-      .catch(error => {
-        console.error('Error getting data from IndexedDB:', error);
-      });
-
-    fetch(`/api/useriddb/?id=${id}`, {
-      cache: 'no-store',
-    })
-      .then(res => res.json())
-      .then(fetchedData => {
-        if (fetchedData) {
+  console.log("id",id);
+  
+        const response = await fetch(`/api/useriddb/?id=${id}`, {
+        });
+      
+        if (response.ok) {
+          const fetchedData = await response.json();
+          console.log("fetcdata into lostorage",fetchedData)
           // Save fetched data to IndexedDB for future use
-          set(dataStorageKey, fetchedData).catch(error => {
+          set(dataStorageKey, fetchedData).then(() => {
+            console.log('Data successfully saved to IndexedDB');
+          })
+          .catch((error) => {
             console.error('Error saving data to IndexedDB:', error);
           });
+  
           setData(fetchedData);
+          console.log("savedData second",data);
         }
-      })
-      .catch(error => {
-        console.error('Error fetching data from API:', error);
-      });
-      
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+  
+    fetchData();
+
   }, [id]);
 
   const filteredData =data && data.data ? data.data.filter(
